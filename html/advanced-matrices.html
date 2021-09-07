@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>advanced-matrices</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #2a211c;
+    color: #bdae9d;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #bdae9d;  padding-left: 4px; }
+div.sourceCode
+  { color: #bdae9d; background-color: #2a211c; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ffff00; } /* Alert */
+code span.an { color: #0066ff; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bn { color: #44aa43; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #43a8ed; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #049b0a; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #0066ff; font-weight: bold; font-style: italic; } /* Comment */
+code span.do { color: #0066ff; font-style: italic; } /* Documentation */
+code span.dt { text-decoration: underline; } /* DataType */
+code span.dv { color: #44aa43; } /* DecVal */
+code span.er { color: #ffff00; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #44aa43; } /* Float */
+code span.fu { color: #ff9358; font-weight: bold; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #0066ff; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #43a8ed; font-weight: bold; } /* Keyword */
+code span.op { } /* Operator */
+code span.pp { font-weight: bold; } /* Preprocessor */
+code span.sc { color: #049b0a; } /* SpecialChar */
+code span.ss { color: #049b0a; } /* SpecialString */
+code span.st { color: #049b0a; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #049b0a; } /* VerbatimString */
+code span.wa { color: #ffff00; font-weight: bold; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="article.css">
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js" type="text/javascript"></script>
+  <script
+      type="text/x-mathjax-config"> MathJax.Ajax.config.path["Contrib"]="https://cdn.mathjax.org/mathjax/contrib"; MathJax.Hub.Register.StartupHook("TeX Jax Ready",function (){MathJax.Hub.Insert(MathJax.InputJax.TeX.Definitions.macros,{cancel: ["Extension","cancel"], bcancel: ["Extension","cancel"], xcancel: ["Extension","cancel"], cancelto: ["Extension","cancel"]});}); MathJax.Hub.Config({tex2jax:{inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true}, TeX:{equationNumbers:{autoNumber: "AMS"}, extensions: ["[Contrib]/physics/physics.js","[Contrib]/siunitx/siunitx.js"]}});</script>
+  <script type="text/javascript"
+      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full"></script>
+
+
+</head>
+<body>
+<div class="header">
+    <div class="container">
+    <h1 class="headerh1"><a href="/index.html">Linear Algebra</a></h1>
+    </div>
+</div>
+
+
+<div class="container">
+  <h1 id="more-on-matrices">More on Matrices</h1>
+  <p>The determinant is an operation that reduces a matrix to a scalar.</p>
+  <blockquote>
+  <p>The matrix must be square in order for it to have a determinant</p>
+  </blockquote>
+  <p>For a <span class="math inline">\(2 \cross 2\)</span>​​ matrix, the determinant can be defined as <span class="math display">\[
+  \begin{vmatrix} a &amp; b \\ c &amp; d\end{vmatrix}=ad-bc
+  \]</span> For a <span class="math inline">\(3 \cross 3\)</span>​ matrix, it can be defined as <span class="math display">\[
+  \begin{vmatrix} a &amp; b &amp; c \\ d &amp; e &amp; f \\ g &amp; h &amp; i\end{vmatrix}
+  =a\begin{vmatrix} e &amp; f \\ h &amp; i\end{vmatrix}
+  -b\begin{vmatrix} d &amp; f \\ g &amp; i\end{vmatrix}
+  +c\begin{vmatrix} d &amp; e \\ g &amp; h\end{vmatrix}
+  \]</span> <strong>Example</strong>: Calculate <span class="math inline">\(\begin{vmatrix} 2 &amp; 1 \\ 4 &amp; 3\end{vmatrix}\)</span></p>
+  <p><span class="math inline">\(\begin{vmatrix} 2 &amp; 1 \\ 4 &amp; 3\end{vmatrix} = 2 * 3-4*1=6-4=2\)</span></p>
+  <h3 id="properties">Properties</h3>
+  <ol type="1">
+  <li><span class="math inline">\(det(cA)=c^ndet(A)\)</span>, for a <span class="math inline">\(n \cross n\)</span>​ matrix.</li>
+  <li><span class="math inline">\(det(A^T)=det(A)\)</span>​</li>
+  <li><span class="math inline">\(det(AB)=det(A)det(B)\)</span></li>
+  <li></li>
+  <li>Interchanging any pair of columns multiples the determinant by -1</li>
+  <li>Adding a scalar multiple of one column to another does not change the determinant</li>
+  </ol>
+  <h3 id="code">Code</h3>
+  <p><strong>Python</strong></p>
+  <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+  <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>matrix <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]])</span>
+  <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>det <span class="op">=</span> np.linalg.det(matrix)</span></code></pre></div>
+  <p><strong>Matlab</strong></p>
+  <div class="sourceCode" id="cb2"><pre class="sourceCode matlab"><code class="sourceCode matlab"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="va">A</span> <span class="op">=</span> [<span class="fl">1</span> <span class="op">-</span><span class="fl">2</span> <span class="fl">4</span><span class="op">;</span> <span class="op">-</span><span class="fl">5</span> <span class="fl">2</span> <span class="fl">0</span><span class="op">;</span> <span class="fl">1</span> <span class="fl">0</span> <span class="fl">3</span>]<span class="op">;</span></span>
+  <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="va">determinant</span> <span class="op">=</span> <span class="va">det</span>(<span class="va">A</span>)<span class="op">;</span></span></code></pre></div>
+  <h2 id="transpose">Transpose</h2>
+  <h2 id="elementary-row-operations">Elementary row operations</h2>
+  <p>These are the elementary row operations that can be done on matrices, it will make more sense when we get to the Gauss-Jordan elimination section.</p>
+  <footer>
+    <hr>
+    <p>&copy; 2021 Sharan Sajiv Menon</p>
+</footer>
+</div>
+</body>
+</html>

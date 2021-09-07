@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>matrices</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="article.css">
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js" type="text/javascript"></script>
+  <script
+      type="text/x-mathjax-config"> MathJax.Ajax.config.path["Contrib"]="https://cdn.mathjax.org/mathjax/contrib"; MathJax.Hub.Register.StartupHook("TeX Jax Ready",function (){MathJax.Hub.Insert(MathJax.InputJax.TeX.Definitions.macros,{cancel: ["Extension","cancel"], bcancel: ["Extension","cancel"], xcancel: ["Extension","cancel"], cancelto: ["Extension","cancel"]});}); MathJax.Hub.Config({tex2jax:{inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true}, TeX:{equationNumbers:{autoNumber: "AMS"}, extensions: ["[Contrib]/physics/physics.js","[Contrib]/siunitx/siunitx.js"]}});</script>
+  <script type="text/javascript"
+      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full"></script>
+
+
+</head>
+<body>
+<div class="header">
+    <div class="container">
+    <h1 class="headerh1"><a href="/index.html">Linear Algebra</a></h1>
+    </div>
+</div>
+
+
+<div class="container">
+  <h1 id="matrices">Matrices</h1>
+  <p>A matrix is a 2 dimensional list of numbers. It looks something like the following</p>
+  <p><span class="math inline">\(\begin{pmatrix} 1 &amp; 2 \\ 3 &amp; 4\end{pmatrix}\)</span>​</p>
+  <p>A matrix has <span class="math inline">\(n\)</span> rows and <span class="math inline">\(m\)</span> columns. The matrix above is a <span class="math inline">\(2x2\)</span> matrix, since it has 2 rows and 2 columns</p>
+  <h2 id="basic-properties">Basic Properties</h2>
+  <h3 id="addition-of-matrices">Addition of Matrices</h3>
+  <p>To add matrices, you just add the elements of each matrix. Note that the sizes of both matrices must be the same</p>
+  <h3 id="subtraction-of-matrices">Subtraction of matrices</h3>
+  <p>Subtracting matrices is the exact same as adding matrices but you just subtract the elements. Here, both matrices must be the same size</p>
+  <h2 id="common-matrices">Common Matrices</h2>
+  <p>There are some common matrices, that are used for certain calculations like eigenvalues</p>
+  <h3 id="zero-matrix">Zero Matrix</h3>
+  <p>The zero matrix is a <span class="math inline">\(m\)</span> x <span class="math inline">\(n\)</span> matrix of just 0, like this:</p>
+  <p><span class="math inline">\(\begin{pmatrix} 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0\end{pmatrix}\)</span>​</p>
+  <p>The above matrix is a <span class="math inline">\(2\)</span> x <span class="math inline">\(3\)</span> zero matrix.</p>
+  <h3 id="identity-matrix">Identity Matrix</h3>
+  <p>Identity matrix is like the zero matrix except that it has 1 in the diagonal, and it is a square matrix</p>
+  <p><span class="math inline">\(\begin{pmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1\end{pmatrix}\)</span></p>
+  <h2 id="matrix-multiplication">Matrix Multiplication</h2>
+  <p>Matrix Multipication, sometimes known as the matrix dot product, is where you multiply 2 matrices together. In order to multiply two matrices, matrix A must be <span class="math inline">\(m \cross n\)</span> and matrix B must be <span class="math inline">\(n \cross p\)</span>. Basically, <span class="math inline">\(m\)</span> and <span class="math inline">\(p\)</span> and be anything, but <span class="math inline">\(n\)</span> must be the same in both matrices. Multiplying a <span class="math inline">\(m \cross n\)</span> and a <span class="math inline">\(n \cross m\)</span>​​​ matrix, returns a <span class="math inline">\(m \cross p\)</span> matrix. <span class="math display">\[
+  \begin{pmatrix}
+  a_{11} &amp; a_{12} &amp; a_{13} \\ a_{21} &amp; a_{22} &amp; a_{23}
+  \end{pmatrix}
+  \begin{pmatrix}
+  b_{11} &amp; b_{12}\\
+  b_{21} &amp; b_{22}\\
+  b_{31} &amp; b_{32}
+  \end{pmatrix}=
+  \begin{pmatrix}
+  c_1 &amp; c_2 \\ c_3 &amp; c_4
+  \end{pmatrix}
+  \]</span> To find <span class="math inline">\(c_n\)</span>, take the dot product of <span class="math inline">\(n\)</span>​th row of A and the <span class="math inline">\(n\)</span>th column of B. For example <span class="math inline">\(c_1 = a_{11}b_{11} + a_{12}b_{21} + a_{13}b_{31}\)</span>​.</p>
+  <h3 id="properties">Properties</h3>
+  <p>A is a <span class="math inline">\(m \cross n\)</span> matrix and B is a <span class="math inline">\(n \cross p\)</span> matrix.</p>
+  <ol type="1">
+  <li><span class="math inline">\(AB \ne BA\)</span></li>
+  <li><span class="math inline">\(AI=A\)</span>, where <span class="math inline">\(I\)</span> is the <span class="math inline">\(n \cross n\)</span>​ identity matrix</li>
+  <li><span class="math inline">\(A(B +C)=AB+AC\)</span>​ and <span class="math inline">\((B+C)D=BD + CD\)</span>​</li>
+  <li><span class="math inline">\((AB)^T=B^TA^T\)</span>​</li>
+  <li><span class="math inline">\(A^k=AA\cdot\cdot\cdot A\)</span>​​</li>
+  <li><span class="math inline">\(A^0=I\)</span></li>
+  <li><span class="math inline">\(det(AB)=det(BA)\)</span></li>
+  </ol>
+  <h2 id="inverse">Inverse</h2>
+  <p>[TO BE ADDED]</p>
+  <footer>
+    <hr>
+    <p>&copy; 2021 Sharan Sajiv Menon</p>
+</footer>
+</div>
+</body>
+</html>

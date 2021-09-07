@@ -1,5 +1,6 @@
 * {
-  font-family: "PT Serif", Helvetica, sans-serif;
+  font-family: Helvetica;
+  color:white;
 }
 li {
   padding: 8px;
@@ -9,23 +10,36 @@ h3 {
   margin: 0;
 }
 h1 {
-  font-weight: 100;
-  font-size: 2rem;
+  color:white;
+  font-weight: bold;
+  font-size: 50px;
 }
+
+.header {
+  margin-top:-34px;
+  width:100%;
+  background-color: orange;
+  margin-bottom:-10px;
+}
+.headerh1 {
+  padding-top:10px;
+  padding-bottom:10px;
+}
+
 .description {
   margin: 0;
   font-size: 14px;
 }
 a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 li:hover {
-  background-color: rgb(219, 213, 199);
+  background-color: slategray;
 }
 
 .hoverme:hover {
-    background-color: rgb(219, 213, 199);
+    background-color: slategray;
 }
 
 li {
@@ -39,7 +53,7 @@ hr {
 .container {
   margin:auto;
   max-width:700px;
-  padding:20px;
+  padding:0px 20px 0px 20px;
 }
 
 body {
@@ -50,8 +64,8 @@ body {
 
 html {
   font-size: 14px;
-  background-color: rgb(244, 242, 238);
-  color: #333333;
+  background-color: darkslategray;
+  color: white;
   height: 100%;
   width: 100%;
   -webkit-font-smoothing: antialiased;
@@ -65,9 +79,9 @@ input[type=text] {
     margin:none;
     margin-bottom:10px;
     margin-top:8px;
-    background-color: rgb(244, 242, 238);
+    background-color: rgb(244, 242, 238, 0);
     outline:none;
-    color: #333333;
+    color: white;
     font-size:17px;
   }
 

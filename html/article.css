@@ -1,0 +1,67 @@
+pre {
+    padding:6px;
+    border-radius:50x;
+    color:white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight:bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color:white;
+}
+
+p {
+    font-family: Helvetica;
+    color:white;
+}
+li {
+    color:white;
+}
+
+a {
+    color:white;
+}
+
+blockquote {
+    border-left:5px solid #ccc;
+    padding-left:15px;
+    font-style: italic;
+    font-weight: 100;
+}
+
+body {
+    width:100%;
+    margin:0;
+    height:100%;
+    background-color: darkslategray;
+}
+.container {
+    max-width: 700px;
+    padding:0px 25px 0px 25px;
+    margin: auto;
+}
+
+.headerh1 {
+    font-size:60px;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+.header a {
+    text-decoration: none;
+}
+
+.header {
+    margin-top:-40px;
+    width:100%;
+    background-color: orange;
+}
+
+@media screen and (max-width: 417px) {
+ header {
+     height:160px;
+ }
+}
+
+footer {
+    padding-bottom:20px;
+}

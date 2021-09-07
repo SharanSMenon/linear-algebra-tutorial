@@ -15,6 +15,11 @@ var pages = [
         "filename": "matrices.html"
     }, 
     {
+        "title": "More on Matrices",
+        "description": "Learn about more advanced topics like the determinant, transpose, etc.",
+        "filename": "advanced-matrices.html"
+    },
+    {
         "title": "Gauss-Jordan Elimination",
         "description": "Gauss-Jordan Elimination is a technique to calculate the RREF",
         "filename": "wronskian.html"
@@ -22,22 +27,27 @@ var pages = [
     {
         "title":"Cramer's Rule",
         "description":"Cramer's rule to solve systems of equations",
-        "filename":"ode.html"
+        "filename":"cramers-rule.html"
     },
     {
         "title":"Eigenvalues and Eigenvectors",
         "description":"Learn what Eigenvalues and Eigenvectors are",
-        "filename":"method-of-undetermined-coefficents.html"
+        "filename":"eigenthings.html"
     },
     {
         "title": "Linear Algebra in Python",
         "description": "Use numpy/scipy to do linear algebra",
-        "filename": "wronskian.html"
+        "filename": "linalg-python.html"
     },
     {
         "title":"Linear Algebra in Matlab",
         "description":"Matlab tutorial for linear algebra.",
-        "filename":"ode.html"
+        "filename":"linalg-matlab.html"
+    },
+    {
+        "title":"Linear Algebra on a TI-84",
+        "description":"It is possible to do some basic linear algebra on a TI-84",
+        "filename":"linalg-ti84.html",
     },
     {
         "title": "Wronskian",
@@ -53,7 +63,7 @@ search.addEventListener("input", () => {
 
 function createLink(page) {
     var link = document.createElement("a");
-    link.href = page.filename;
+    link.href = "html/" + page.filename;
     link.appendChild(createPageListItem(page));
     return link;
 }

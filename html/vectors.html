@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Sharan Sajiv Menon">
+  <title>vectors</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #2a211c;
+    color: #bdae9d;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #bdae9d;  padding-left: 4px; }
+div.sourceCode
+  { color: #bdae9d; background-color: #2a211c; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ffff00; } /* Alert */
+code span.an { color: #0066ff; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bn { color: #44aa43; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #43a8ed; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #049b0a; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #0066ff; font-weight: bold; font-style: italic; } /* Comment */
+code span.do { color: #0066ff; font-style: italic; } /* Documentation */
+code span.dt { text-decoration: underline; } /* DataType */
+code span.dv { color: #44aa43; } /* DecVal */
+code span.er { color: #ffff00; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #44aa43; } /* Float */
+code span.fu { color: #ff9358; font-weight: bold; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #0066ff; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #43a8ed; font-weight: bold; } /* Keyword */
+code span.op { } /* Operator */
+code span.pp { font-weight: bold; } /* Preprocessor */
+code span.sc { color: #049b0a; } /* SpecialChar */
+code span.ss { color: #049b0a; } /* SpecialString */
+code span.st { color: #049b0a; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #049b0a; } /* VerbatimString */
+code span.wa { color: #ffff00; font-weight: bold; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="article.css">
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js" type="text/javascript"></script>
+  <script
+      type="text/x-mathjax-config"> MathJax.Ajax.config.path["Contrib"]="https://cdn.mathjax.org/mathjax/contrib"; MathJax.Hub.Register.StartupHook("TeX Jax Ready",function (){MathJax.Hub.Insert(MathJax.InputJax.TeX.Definitions.macros,{cancel: ["Extension","cancel"], bcancel: ["Extension","cancel"], xcancel: ["Extension","cancel"], cancelto: ["Extension","cancel"]});}); MathJax.Hub.Config({tex2jax:{inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true}, TeX:{equationNumbers:{autoNumber: "AMS"}, extensions: ["[Contrib]/physics/physics.js","[Contrib]/siunitx/siunitx.js"]}});</script>
+  <script type="text/javascript"
+      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full"></script>
+
+
+</head>
+<body>
+<div class="header">
+    <div class="container">
+    <h1 class="headerh1"><a href="/index.html">Linear Algebra</a></h1>
+    </div>
+</div>
+
+
+<div class="container">
+  <h1 id="vectors">Vectors</h1>
+  <h2 id="what-is-a-vector">What is a vector</h2>
+  <h2 id="basic-properties">Basic Properties</h2>
+  <h3 id="addition-of-vectors">Addition of Vectors</h3>
+  <p>Two vectors can be added as long as they are the same size. Adding them is as simple as adding the numbers together.</p>
+  <p><span class="math inline">\(A(1, 2, 3) + B(2, 3, 4) = C(3, 5, 7)\)</span>​</p>
+  <p><strong>Numpy Code</strong></p>
+  <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
+  <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.array([<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>])</span>
+  <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> a <span class="op">+</span> b</span></code></pre></div>
+  <h3 id="subtraction-of-vectors">Subtraction of Vectors</h3>
+  <p>Subtracting vectors is just like adding vectors. Vectors have to be same size and all you do is subtract the individual elements.</p>
+  <p><span class="math inline">\(A(2, 3, 4) - B(1, 2, 3)=C(1, 1, 1)\)</span>​</p>
+  <p><strong>Numpy Code</strong></p>
+  <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array([<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>])</span>
+  <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
+  <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> a <span class="op">-</span> b</span></code></pre></div>
+  <h2 id="dot-product">Dot Product</h2>
+  <p>Now we get into more advanced vector operations.</p>
+  <p>The dot product is a very useful vector operation. You can use it to find the area of parallelograms and triangles from 3 dimensional coordinates without having to find distance and all. You can also calculate work, and do many other things with the dot product. This guide will show you how to calculate that dot product.</p>
+  <p>The notation looks like the following: <span class="math inline">\(a \cdot b\)</span></p>
+  <h3 id="how-to-calculate">How to calculate</h3>
+  <p>Calculate the dot product of <span class="math inline">\(A(1, 3, 2)\)</span> and <span class="math inline">\(B(4, 1, 6)\)</span>.</p>
+  <blockquote>
+  <p><strong>Important</strong>: The dot product of 2 vectors will always be a single number, no matter the dimensions.</p>
+  </blockquote>
+  <ol type="1">
+  <li>Multiply the numbers in the corresponding positions</li>
+  <li>Take the sum of the result</li>
+  </ol>
+  <p><span class="math display">\[
+  A_1B_1 + A_2B_2 + A_3B_3 ... + A_nB_n = d
+  \]</span></p>
+  <p>That’s the formula for the dot product. For our vectors, it will look like this:</p>
+  <p><span class="math display">\[
+  1\times4 + 3\times1 + 6\times2 = 4 + 3 + 12 = 19
+  \]</span></p>
+  <p>So the dot product of vectors <span class="math inline">\(A\)</span>​ and <span class="math inline">\(B\)</span>​ is 19.</p>
+  <h3 id="properties">Properties</h3>
+  <ol type="1">
+  <li><span class="math inline">\(a \cdot b=b \cdot a\)</span></li>
+  <li><span class="math inline">\(a \cdot (b + c)=a\cdot b + a \cdot c\)</span></li>
+  <li>$a (rb + c)=r(a b) + (a c) $​, where <span class="math inline">\(r\)</span> is a scalar</li>
+  <li><span class="math inline">\((c_1a)\cdot(c_2b)=c_1c_2(a \cdot b)\)</span>​, where <span class="math inline">\(c_1\)</span> and <span class="math inline">\(c_2\)</span> are scalars</li>
+  <li>If <span class="math inline">\(a\cdot b=0\)</span>, the <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are orthogonal.</li>
+  </ol>
+  <h3 id="examples">Examples</h3>
+  <p>For the following exercises, calculate the dot product of the 2 vectors</p>
+  <blockquote>
+  <p>Try the exercises on your own first, if you don’t know, then you can look at the solution.</p>
+  </blockquote>
+  <ol type="1">
+  <li><p><span class="math inline">\(A(1, 6, 1)\)</span> and <span class="math inline">\(B(3, 5, 2)\)</span>. <span class="math display">\[
+  1\times3 + 6\times5 + 1\times2 = 3 + 30 + 2 = 35
+  \]</span></p></li>
+  <li><p><span class="math inline">\(A(3, 5, 4)\)</span> and <span class="math inline">\(B(5, 1, 3)\)</span>.</p></li>
+  </ol>
+  <p><span class="math display">\[
+  3\times5 + 5\times1 + 4\times3 = 15 + 5 + 12 = 32
+  \]</span></p>
+  <h3 id="practice">Practice</h3>
+  <p>Find the dot product for the following exercises</p>
+  <ol type="1">
+  <li><span class="math inline">\(A(9, 4, 3)\)</span> and <span class="math inline">\(B(5, 4, 1)\)</span></li>
+  <li><span class="math inline">\(A(7, 6)\)</span> and <span class="math inline">\(B(8, 4)\)</span>.</li>
+  <li><span class="math inline">\(A(2, 1, 4, 7)\)</span> and <span class="math inline">\(B(6, 4, 1, 5)\)</span>.</li>
+  </ol>
+  <p><strong>Numpy Code</strong></p>
+  <div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>]</span>
+  <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">6</span>]</span>
+  <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>np.dot(a, b)</span></code></pre></div>
+  <h2 id="cross-product">Cross Product</h2>
+  <p>Cross product is another useful vector operation. It returns a vector perpendicular to vectors <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>. It is notated by <span class="math inline">\(a \cross b\)</span>​.</p>
+  <h3 id="how-to-calculate-1">How to calculate</h3>
+  <p><span class="math display">\[
+  a \cross b = \norm{a}\norm{b}sin(\theta)n
+  \]</span></p>
+  <p>Where <span class="math inline">\(\norm{a}\)</span> and <span class="math inline">\(\norm{b}\)</span> are the magnitudes of vectors <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, <span class="math inline">\(\theta\)</span> is the angle between the vectors, and <span class="math inline">\(n\)</span> is a unit vector perpendicular to the plane containing <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>​</p>
+  <p>It can also be expressed as this determinant <span class="math display">\[
+  \begin{vmatrix} 
+  i &amp; j &amp; k \\
+  a_1 &amp; a_2 &amp; a_3 \\
+  b_1 &amp; b_2 &amp; b_3
+  \end{vmatrix} = 
+  \\
+  (a_2b_3 - a_3b_2)i - (a_1b_3 - a_3b_1)j + (a_1b_2 - a_2b_1)k
+  \]</span></p>
+  <h3 id="examples-1">Examples</h3>
+  <p><span class="math inline">\(A(1, 2, 3)\)</span>​​ and <span class="math inline">\(B(2, 3, 4)\)</span>​​​ <span class="math display">\[
+  \begin{vmatrix} 
+  i &amp; j &amp; k \\
+  1 &amp; 2 &amp; 3 \\
+  2 &amp; 3 &amp; 4
+  \end{vmatrix} = (8 - 9)i - (4 - 6)j + (3 - 4)k
+  \]</span> <span class="math inline">\(A \cross B = -1i + 2j - 1k= (-1, 2, -1)\)</span>​</p>
+  <h3 id="properties-1">Properties</h3>
+  <ol type="1">
+  <li><span class="math inline">\((a \cross a)=0\)</span></li>
+  <li><span class="math inline">\(a \cross b = -(b \cross a)\)</span></li>
+  <li><span class="math inline">\(a \cross (b + c)= (a \cross b) + (a \cross c)\)</span></li>
+  <li><span class="math inline">\((ra) \cross b = r(a \cross b)=a \cross (rb)\)</span>, where <span class="math inline">\(r\)</span> is a scalar</li>
+  <li></li>
+  </ol>
+  <h3 id="practice-1">Practice</h3>
+  <p>Find the dot product for the following exercises</p>
+  <ol type="1">
+  <li><span class="math inline">\(A(3, 2, 3)\)</span>​​ and <span class="math inline">\(B(2, 4, 1)\)</span>​​</li>
+  <li><span class="math inline">\(A(7, 9)\)</span>​​ and <span class="math inline">\(B(3, 4)\)</span>​​.</li>
+  <li><span class="math inline">\(A(4, 3, 8, 7)\)</span>​​ and <span class="math inline">\(B(6, 2, 5, 3)\)</span>​​.</li>
+  </ol>
+  <p><strong>Numpy Code</strong></p>
+  <div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+  <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
+  <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>]</span>
+  <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>np.cross(a, b)</span></code></pre></div>
+  <footer>
+    <hr>
+    <p>&copy; 2021 Sharan Sajiv Menon</p>
+</footer>
+</div>
+</body>
+</html>
